@@ -1,0 +1,5 @@
+node_modules
+lib
+src/*.es5*
+makefile
+
