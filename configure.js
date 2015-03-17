@@ -1,19 +1,23 @@
-var { generateProject } = require('diy-build')
+var {
+  generateProject
+} = require('diy-build')
 
 
 
-generateProject( _ => {
+generateProject(_ => {
 
   _.babel = (src, ...deps) => {
     var command = (_) => `./node_modules/.bin/babel ${_.source} -o ${_.product}`
     var product = (_) => `${_.source.replace(/\..*/, '.es5.js')}`
-    _.compileFiles(...([ command, product, src ].concat(deps)))
+    _.compileFiles(...([command, product, src].concat(deps)))
   }
 
   _.collectSeq("all", _ => {
-      _.collect("build", _ => {
+    _.collect("build", _ => {
 
-        _.mirrorTo("lib", { strip: "src" } , _ => {
+        _.mirrorTo("lib", {
+          strip: "src"
+        }, _ => {
           _.babel("src/*.js")
         })
 

@@ -1,10 +1,11 @@
-
 var $ = require('lodash')
-var { search } = require('./lib/search.es5')
+var {
+  search
+} = require('./lib/search.es5')
 
-search("exemd").then( _ => {
+search("exemd").then(_ => {
   $.map(_, _ => {
-      console.log(_.title);
+    console.log(_.title);
   })
 })
 
