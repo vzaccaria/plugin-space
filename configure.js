@@ -1,4 +1,3 @@
-
 var { generateProject } = require('diy-build')
 
 
@@ -23,7 +22,7 @@ generateProject( _ => {
         })
 
       })
-      _.cmd("node ./index.js")
+      // _.cmd("node ./index.js")
   })
 
   _.collectSeq("update", _ => {
