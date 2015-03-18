@@ -30,7 +30,7 @@ generateProject(_ => {
 
   ["major", "minor", "patch"].map( it => {
     _.collect(it, _ => {
-      _.cmd(`./node_modules/bin/xyz -i ${it}`)
+      _.cmd(`./node_modules/.bin/xyz -i ${it}`)
     })
   })
 
