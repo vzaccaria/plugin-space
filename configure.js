@@ -16,7 +16,7 @@ generateProject(_ => {
     _.collect("build", _ => {
 
         _.mirrorTo("lib", {
-          strip: "src"
+          strip: "src/"
         }, _ => {
           _.babel("src/*.js")
         })
@@ -24,10 +24,16 @@ generateProject(_ => {
         _.toFile("./index.js", _ => {
           _.babel("src/index.js")
         })
-
       })
-      // _.cmd("node ./index.js")
+    _.cmd("DEBUG=* node ./index.js")
+  });
+
+  ["major", "minor", "patch"].map( it => {
+    _.collect(it, _ => {
+      _.cmd(`./node_modules/bin/xyz -i ${it}`)
+    })
   })
+
 
   _.collectSeq("update", _ => {
     _.cmd("make clean")
