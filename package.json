@@ -1,10 +1,9 @@
 {
   "name": "plugin-space",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A programmatic way of using npm as a plugin repo",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/vzaccaria/plugin-space.git"
