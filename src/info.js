@@ -5,7 +5,7 @@ var _module = () => {
 
   var info = _ => {
     return new promise((resolve, reject) => {
-      S.exec(`${__dirname}/node_modules/.bin/npm info ${_} --json`, {
+      S.exec(`${__dirname}/../node_modules/.bin/npm info ${_} --json`, {
         silent: true
       }, (code, output) => {
         if (code) {
