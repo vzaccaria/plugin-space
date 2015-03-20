@@ -5,14 +5,16 @@ var _module = () => {
 
   var info = _ => {
     return new promise((resolve, reject) => {
-        S.exec(`npm info ${_} --json`, {silent: true}, (code, output) => {
-          if(code) {
-            reject(`Error code ${code}`)
-          } else {
-            var data = JSON.parse(output)
-            resolve(data)
-          }
-        })
+      S.exec(`${__dirname}/node_modules/.bin/npm info ${_} --json`, {
+        silent: true
+      }, (code, output) => {
+        if (code) {
+          reject(`Error code ${code}`)
+        } else {
+          var data = JSON.parse(output)
+          resolve(data)
+        }
+      })
     })
   }
 
