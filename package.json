@@ -1,6 +1,6 @@
 {
   "name": "plugin-space",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A programmatic way of using npm as a plugin repo",
   "main": "index.js",
   "scripts": {},
