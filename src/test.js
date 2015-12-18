@@ -7,10 +7,8 @@ var should = chai.should()
 describe('#module', () => {
     "use strict"
     it('should load the module', () => {
-
         var mod = require('..');
         should.exist(mod);
-
     })
     it('should get an array', () => {
         var mod = require('..');
@@ -18,6 +16,6 @@ describe('#module', () => {
     })
     it('the array should contain valid values', () => {
         var mod = require('..');
-        return mod.search('exemd').should.eventually.contain("exemd");
+        return mod.search('exemd').should.eventually.contain("exemd-dot");
     })
 })

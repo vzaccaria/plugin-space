@@ -1,7 +1,7 @@
 var $ = require('lodash')
 
-var {
-  search
+ var {
+   search
 } = require('./lib/search.js')
 
 var {
@@ -9,7 +9,7 @@ var {
 } = require('./lib/info.js')
 
 var {
-  tablify, header
+   tablify, header
 } = require('./lib/print.js')
 
 
