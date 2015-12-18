@@ -23,14 +23,14 @@
     "bluebird": "^2.9.14",
     "babel": "^4.7.12"
   },
-  "homepage": "https:\/\/github.com\/vzaccaria\/plugin-space",
+  "homepage": "https://github.com/vzaccaria/plugin-space",
   "bugs": {
-    "url": "https:\/\/github.com\/vzaccaria\/plugin-space\/issues"
+    "url": "https://github.com/vzaccaria/plugin-space/issues"
   },
   "license": "BSD",
   "author": "Vittorio Zaccaria",
   "repository": {
-    "url": "https:\/\/github.com\/vzaccaria\/plugin-space.git",
+    "url": "https://github.com/vzaccaria/plugin-space.git",
     "type": "git"
   },
   "scripts": {
@@ -38,6 +38,6 @@
   },
   "main": "index.js",
   "description": "A programmatic way of using npm as a plugin repo",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "name": "plugin-space"
 }
