@@ -2,27 +2,29 @@ var $ = require('lodash')
 
 var {
   search
-} = require('./lib/search.es5.js')
+} = require('./lib/search.js')
 
 var {
   info
-} = require('./lib/info.es5.js')
+} = require('./lib/info.js')
 
 var {
   tablify, header
-} = require('./lib/print.es5.js')
+} = require('./lib/print.js')
 
 
 
 var _module = () => {
 
-  var printAll = _ => {
-    header()
-    return search(_, 25).map(info).map(tablify)
-  }
+    var printAll = _ => {
+        header()
+        return search(_).then( (it) => {
+            return $.map(it, info);
+        }).map(tablify);
+    }
 
   return {
-    printAll: printAll
+      printAll, search
   }
 }
 

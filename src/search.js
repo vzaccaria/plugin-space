@@ -1,15 +1,32 @@
-var g = require('./google.es5.js')
-var b = require('bluebird')
+var Promise = require('bluebird')
 var _ = require('lodash')
 var S = require('string')
 var debug = require('debug')('plugin-space:search')
 
-var google = b.promisify(g.igoogle)
+var agent = require('superagent-promise')(require('superagent'), Promise);
+
 
 var _module = () => {
-  var search = (name, max = 25) => {
-    debug(`Searching for ${max} packages`)
-    var rng = _.range(0, max, 25)
+    var search = (name, max = 25) => {
+        debug(`Searching for ${max} packages`);
+        let url = "http://npmsearch.com/query?q=exemd&fields=name";
+        return agent('GET', url).set('Accept', 'application/json').then((it) => {
+            return JSON.parse(it.text);
+        }).then( (data) => {
+            return  _.map(data.results, r => {
+                return r.name[0]
+            })
+        })
+    }
+
+    return {
+        search: search
+    }
+}
+
+module.exports = _module()
+
+/*
     return b.all(_.map(rng, (start) => {
         debug(`site:www.npmjs.com ${name} - ${start}`)
         return google(`site:www.npmjs.com ${name}`, start)
@@ -28,11 +45,4 @@ var _module = () => {
           data = _.map(data, $ => S($.link).strip("https://www.npmjs.com/package/").s)
           return data
         })
-  }
-
-  return {
-    search: search
-  }
-}
-
-module.exports = _module()
+*/
